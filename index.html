@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>암호화폐 들려주는 남자 거래소 레퍼럴 - 평생 지원과 특별 혜택</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Section */
+        .hero {
+            background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero .highlight {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0 8px 25px rgba(39, 174, 96, 0.4);
+            transition: all 0.3s ease;
+            margin: 20px 10px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(39, 174, 96, 0.6);
+        }
+
+        .banner-image {
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            border-radius: 20px;
+            margin: 40px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        /* Comparison Section */
+        .comparison {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #2c3e50;
+        }
+
+        .comparison-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .comparison-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 3px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .comparison-card.no-payback {
+            border-color: #e74c3c;
+            background: linear-gradient(135deg, #fdf2f2 0%, #fee2e2 100%);
+        }
+
+        .comparison-card.featured {
+            border-color: #3498db;
+            background: linear-gradient(135deg, #e6f3ff 0%, #cce7ff 100%);
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(52, 152, 219, 0.2);
+        }
+
+        .comparison-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .comparison-card.no-payback h3 {
+            color: #e74c3c;
+        }
+
+        .comparison-card.featured h3 {
+            color: #3498db;
+        }
+
+        .comparison-card ul {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .comparison-card li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .comparison-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        .comparison-card.no-payback li::before {
+            color: #e74c3c;
+        }
+
+        .comparison-card.featured li::before {
+            color: #3498db;
+        }
+
+        /* Payback Section */
+        .payback {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .payback-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .payback-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 3px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .payback-card.no-payback {
+            border-color: #bdc3c7;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .payback-card.with-payback {
+            border-color: #27ae60;
+            background: linear-gradient(135deg, #d5f4e6 0%, #a8e6cf 100%);
+            transform: scale(1.02);
+            box-shadow: 0 20px 40px rgba(39, 174, 96, 0.2);
+        }
+
+        .payback-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .payback-card.no-payback h3 {
+            color: #6c757d;
+        }
+
+        .payback-card.with-payback h3 {
+            color: #27ae60;
+        }
+
+        .payback-details {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .payback-details li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .payback-details li:last-child {
+            border-bottom: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 15px;
+            padding-top: 20px;
+            border-top: 2px solid rgba(0,0,0,0.2);
+        }
+
+        .payback-details .label {
+            color: #666;
+        }
+
+        .payback-details .value {
+            font-weight: bold;
+        }
+
+        .payback-details .value.highlight {
+            color: #27ae60;
+        }
+
+        .payback-details .value.warning {
+            color: #e74c3c;
+        }
+
+        .payback-conclusion {
+            text-align: center;
+            margin: 50px 0 30px;
+            padding: 30px;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            border-radius: 20px;
+            color: white;
+        }
+
+        .payback-conclusion h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .payback-conclusion p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .benefit-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .benefit-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Reviews Section */
+        .reviews {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .review-card {
+            background: #f8f9fa;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        .review-info h4 {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .review-rating {
+            color: #ffa500;
+            font-size: 1.2rem;
+        }
+
+        .review-text {
+            color: #666;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        /* Final CTA Section */
+        .final-cta {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .exchange-marquee {
+            margin: 40px 0;
+            padding: 20px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .exchange-track {
+            display: flex;
+            animation: scroll 30s linear infinite;
+            white-space: nowrap;
+        }
+
+        .exchange-track:hover {
+            animation-play-state: paused;
+        }
+
+        .exchange-item {
+            display: inline-block;
+            margin: 0 30px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .exchange-item:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+            text-decoration: none;
+            color: white;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .final-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .final-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .referral-code {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .comparison-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-card.featured {
+                transform: none;
+            }
+            
+            .payback-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-button {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255,255,255,0.2);
+            z-index: 1000;
+        }
+
+        .scroll-progress {
+            height: 100%;
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-indicator">
+        <div class="scroll-progress" id="scrollProgress"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>암호화폐 들려주는 남자</h1>
+                <p class="subtitle">암호화폐 들려주는 남자 코드로 가입하면 수수료 최대 50% 페이백 + 평생 지원</p>
+                <p class="subtitle">단순한 코드가 아닌 <span class="highlight">평생 파트너십</span>을 제공합니다</p>
+                <p class="subtitle">가입부터 거래까지, 모든 과정을 함께합니다</p>
+                <a href="http://pf.kakao.com/_MGxexan/chat" class="cta-button" target="_blank">문의하기</a>
+                <a href="#benefits" class="cta-button" style="background: linear-gradient(45deg, #3498db, #2980b9);">혜택 자세히 보기</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison" id="comparison">
+        <div class="container">
+            <h2 class="section-title">왜 암호화폐 들려주는 남자 코드를 선택해야 할까요?</h2>
+            <div class="comparison-cards">
+                <div class="comparison-card no-payback">
+                    <h3>❌ 일반 레퍼럴</h3>
+                    <ul>
+                        <li>코드만 제공</li>
+                        <li>가입 후 연락 없음</li>
+                        <li>혼자 알아서 해결</li>
+                        <li>문제 발생시 지원 없음</li>
+                        <li>일회성 혜택만</li>
+                        <li>거래 수수료 그대로</li>
+                    </ul>
+                </div>
+                <div class="comparison-card featured">
+                    <h3>✅ 암호화폐 들려주는 남자 레퍼럴</h3>
+                    <ul>
+                        <li>평생 지원 서비스</li>
+                        <li>실시간 상담 제공</li>
+                        <li>가입부터 거래까지 가이드</li>
+                        <li>24시간 문제 해결 지원</li>
+                        <li>매달 특별 이벤트</li>
+                        <li>최대 50% 수수료 할인</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payback Importance Section -->
+    <section class="payback" id="payback">
+        <div class="container">
+            <h2 class="section-title">페이백의 중요성</h2>
+            <div class="payback-cards">
+                <div class="payback-card no-payback">
+                    <h3>❌ 페이백 없음</h3>
+                    <ul class="payback-details">
+                        <li>
+                            <span class="label">거래소</span>
+                            <span class="value">A거래소 기준</span>
+                        </li>
+                        <li>
+                            <span class="label">기본 수수료</span>
+                            <span class="value">0.06%</span>
+                        </li>
+                        <li>
+                            <span class="label">페이백</span>
+                            <span class="value warning">없음</span>
+                        </li>
+                        <li>
+                            <span class="label">레버리지</span>
+                            <span class="value">20배</span>
+                        </li>
+                        <li>
+                            <span class="label">매수 수수료</span>
+                            <span class="value">1.2%</span>
+                        </li>
+                        <li>
+                            <span class="label">매도 수수료</span>
+                            <span class="value">1.2%</span>
+                        </li>
+                        <li>
+                            <span class="label">총 수수료</span>
+                            <span class="value warning">2.4% 이상이어야 수익 가능</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="payback-card with-payback">
+                    <h3>✅ 페이백 50%</h3>
+                    <ul class="payback-details">
+                        <li>
+                            <span class="label">거래소</span>
+                            <span class="value">동일 조건</span>
+                        </li>
+                        <li>
+                            <span class="label">기본 수수료</span>
+                            <span class="value">0.06%</span>
+                        </li>
+                        <li>
+                            <span class="label">페이백</span>
+                            <span class="value highlight">50%</span>
+                        </li>
+                        <li>
+                            <span class="label">레버리지</span>
+                            <span class="value">20배</span>
+                        </li>
+                        <li>
+                            <span class="label">매수 수수료</span>
+                            <span class="value">1.2%</span>
+                        </li>
+                        <li>
+                            <span class="label">매도 수수료</span>
+                            <span class="value">1.2%</span>
+                        </li>
+                        <li>
+                            <span class="label">총 수수료</span>
+                            <span class="value">2.4%</span>
+                        </li>
+                        <li>
+                            <span class="label">페이백 절감</span>
+                            <span class="value highlight">1.2% 절감</span>
+                        </li>
+                        <li>
+                            <span class="label">실제 수수료</span>
+                            <span class="value highlight">1.2% 이상만 되어도 수익 가능</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="payback-conclusion">
+                <h3>✅ 페이백이 곧 수익률입니다</h3>
+                <p>페이백은 수익률을 두 배 높여줍니다</p>
+            </div>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="#signup" class="cta-button">지금 페이백 혜택 받기</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <h2 class="section-title">특별한 혜택들</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3>높은 페이백</h3>
+                    <p>거래 수수료의 최대 50%를 페이백으로 돌려드립니다. 매월 자동으로 지급되어 더 많은 수익을 얻을 수 있습니다.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🛡️</div>
+                    <h3>평생 지원</h3>
+                    <p>가입부터 거래소 설정, 입출금, 거래 전략까지 모든 과정을 함께합니다. 언제든지 문의하세요.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎁</div>
+                    <h3>특별 이벤트</h3>
+                    <p>매월 숨겨진 이벤트와 특별 혜택을 제공합니다. 일반 회원들은 모르는 독점 혜택을 누리세요.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📞</div>
+                    <h3>실시간 상담</h3>
+                    <p>거래 중 문제가 생기면 즉시 연락하세요. 전문가가 실시간으로 도움을 드립니다.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📈</div>
+                    <h3>투자 가이드</h3>
+                    <p>초보자도 쉽게 따라할 수 있는 투자 전략과 시장 분석을 제공합니다.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔒</div>
+                    <h3>보안 관리</h3>
+                    <p>계정 보안 설정부터 2FA 설정까지 안전한 거래 환경을 구축해드립니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews">
+        <div class="container">
+            <h2 class="section-title">실제 회원 후기</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">김</div>
+                        <div class="review-info">
+                            <h4>김XX (비트겟 이용)</h4>
+                            <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"처음 암호화폐를 시작할 때 너무 막막했는데, 가입부터 거래까지 모든 과정을 친절하게 도와주셨어요. 매월 페이백도 정말 좋고요!"</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">이</div>
+                        <div class="review-info">
+                            <h4>이XX (바이비트 이용)</h4>
+                            <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"다른 레퍼럴과는 완전히 달라요. 문제가 생기면 바로 연락해서 해결해주시고, 매달 특별 이벤트도 있어서 정말 만족합니다."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">박</div>
+                        <div class="review-info">
+                            <h4>박XX (엘뱅크 이용)</h4>
+                            <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"수수료 할인도 좋지만, 진짜 좋은 건 평생 지원이에요. 투자 전략도 조언해주시고, 시장 분석도 공유해주셔서 수익이 많이 늘었어요."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta" id="signup">
+        <div class="container">
+            <h2>지금 바로 시작하세요!</h2>
+            <p>수많은 회원들이 선택한 특별한 레퍼럴 서비스</p>
+            
+            <div class="exchange-marquee">
+                <div class="exchange-track">
+                    <a href="https://partner.bitget.com/bg/U81YBL" class="exchange-item" target="_blank">비트겟</a>
+                    <a href="https://partner.bybit.com/b/128280" class="exchange-item" target="_blank">바이비트</a>
+                    <a href="https://lbank.one/ref/4BPEO" class="exchange-item" target="_blank">엘뱅크</a>
+                    <a href="https://s.deepcoin.com/siefcjh" class="exchange-item" target="_blank">DEEPCOIN</a>
+                    <a href="https://www.tapbit.com/auth/DKQGBSK" class="exchange-item" target="_blank">탭비트</a>
+                    <a href="https://www.orangex.com/register?i=4j9atgs2" class="exchange-item" target="_blank">오렌지거래소</a>
+                    <a href="https://partner.bydfi.com/register?vipCode=iqOksj" class="exchange-item" target="_blank">바이드파이</a>
+                    <a href="https://www.ourbit.com/register?inviteCode=T6NG4S" class="exchange-item" target="_blank">아워빗</a>
+                    <a href="https://www.bitmart.com/invite/c7yng4/ko-KR" class="exchange-item" target="_blank">비트마트</a>
+                    <a href="https://www.xt.com/en/accounts/register?ref=ECUMIW" class="exchange-item" target="_blank">XT거래소</a>
+                    <a href="https://www.weex.com/ko/register?vipCode=hggq" class="exchange-item" target="_blank">WEEX</a>
+                    <a href="https://www.bitunix.com/register?vipCode=Do7F" class="exchange-item" target="_blank">비트유닉스</a>
+                    <a href="https://phemex.com/affiliate-program" class="exchange-item" target="_blank">페맥스</a>
+                    <!-- 반복을 위해 한 번 더 추가 -->
+                    <a href="https://partner.bitget.com/bg/U81YBL" class="exchange-item" target="_blank">비트겟</a>
+                    <a href="https://partner.bybit.com/b/128280" class="exchange-item" target="_blank">바이비트</a>
+                    <a href="https://lbank.one/ref/4BPEO" class="exchange-item" target="_blank">엘뱅크</a>
+                    <a href="https://s.deepcoin.com/siefcjh" class="exchange-item" target="_blank">DEEPCOIN</a>
+                    <a href="https://www.tapbit.com/auth/DKQGBSK" class="exchange-item" target="_blank">탭비트</a>
+                    <a href="https://www.orangex.com/register?i=4j9atgs2" class="exchange-item" target="_blank">오렌지거래소</a>
+                    <a href="https://partner.bydfi.com/register?vipCode=iqOksj" class="exchange-item" target="_blank">바이드파이</a>
+                    <a href="https://www.ourbit.com/register?inviteCode=T6NG4S" class="exchange-item" target="_blank">아워빗</a>
+                    <a href="https://www.bitmart.com/invite/c7yng4/ko-KR" class="exchange-item" target="_blank">비트마트</a>
+                    <a href="https://www.xt.com/en/accounts/register?ref=ECUMIW" class="exchange-item" target="_blank">XT거래소</a>
+                    <a href="https://www.weex.com/ko/register?vipCode=hggq" class="exchange-item" target="_blank">WEEX</a>
+                    <a href="https://www.bitunix.com/register?vipCode=Do7F" class="exchange-item" target="_blank">비트유닉스</a>
+                    <a href="https://phemex.com/affiliate-program" class="exchange-item" target="_blank">페맥스</a>
+                </div>
+            </div>
+            
+            <a href="http://pf.kakao.com/_MGxexan/chat" class="cta-button" target="_blank">문의하기</a>
+            <p style="margin-top: 30px; font-size: 1rem; opacity: 0.8;">
+                가입 후 즉시 연락 주시면<br>페이백 설정 도와드립니다!
+            </p>
+        </div>
+    </section>
+
+    <script>
+        // Scroll progress indicator
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.offsetHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            document.getElementById('scrollProgress').style.width = scrollPercent + '%';
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // CTA button click tracking
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                // Here you can add analytics tracking
+                console.log('CTA clicked:', this.textContent);
+            });
+        });
+    </script>
+</body>
+</html>
