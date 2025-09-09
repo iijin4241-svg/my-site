@@ -122,18 +122,40 @@
 
         .comparison-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
             margin-top: 50px;
+        }
+
+        @media (max-width: 1024px) and (min-width: 641px) {
+            .comparison-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .comparison-cards {
+                grid-template-columns: 1fr;
+            }
         }
 
         .comparison-card {
             background: white;
             border-radius: 20px;
-            padding: 40px;
+            padding: 24px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border: 3px solid #e0e0e0;
+            border: 2px solid #E2E8F0;
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            height: 100%;
+            min-height: 280px;
+        }
+
+        .comparison-card:hover {
+            border-color: #CBD5E1;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
         }
 
         .comparison-card.no-payback {
@@ -149,9 +171,24 @@
         }
 
         .comparison-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
+            font-size: 1.5rem;
+            margin-bottom: 12px;
             text-align: center;
+            color: #1E293B;
+            font-weight: 700;
+            line-height: 1.6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            align-self: center;
+        }
+
+        @media (max-width: 640px) {
+            .comparison-card h3 {
+                font-size: 1.25rem;
+            }
         }
 
         .comparison-card.no-payback h3 {
@@ -188,6 +225,69 @@
 
         .comparison-card.featured li::before {
             color: #3498db;
+        }
+
+        .comparison-card.highlight-card {
+            border-color: #e74c3c;
+            background: linear-gradient(135deg, #fdf2f2 0%, #fee2e2 100%);
+        }
+
+        .comparison-card.highlight-card h3 {
+            color: #e74c3c;
+        }
+
+        .comparison-card.story-card {
+            border-color: #f39c12;
+            background: linear-gradient(135deg, #fef9e7 0%, #fcf3cf 100%);
+        }
+
+        .comparison-card.story-card h3 {
+            color: #f39c12;
+        }
+
+        .comparison-card.offer-card {
+            border-color: #27ae60;
+            background: linear-gradient(135deg, #d5f4e6 0%, #a8e6cf 100%);
+            transform: scale(1.02);
+            box-shadow: 0 20px 40px rgba(39, 174, 96, 0.2);
+        }
+
+        .comparison-card.offer-card h3 {
+            color: #27ae60;
+        }
+
+        .comparison-card .card-content {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            width: 100%;
+        }
+
+        .comparison-card p {
+            margin: 8px 0;
+            line-height: 1.7;
+            color: #1E293B;
+            font-size: 1.125rem;
+            text-align: left;
+            max-width: 85%;
+        }
+
+        .comparison-card p:first-of-type {
+            margin-top: 0;
+        }
+
+        .comparison-card p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 640px) {
+            .comparison-card {
+                min-height: 240px;
+            }
+            
+            .comparison-card p {
+                font-size: 1rem;
+            }
         }
 
         /* Payback Section */
@@ -496,11 +596,8 @@
                 font-size: 2rem;
             }
             
-            .comparison-cards {
-                grid-template-columns: 1fr;
-            }
-            
-            .comparison-card.featured {
+            .comparison-card.featured,
+            .comparison-card.offer-card {
                 transform: none;
             }
             
@@ -581,27 +678,28 @@
         <div class="container">
             <h2 class="section-title">왜 암호화폐 들려주는 남자 코드를 선택해야 할까요?</h2>
             <div class="comparison-cards">
-                <div class="comparison-card no-payback">
-                    <h3>❌ 일반 레퍼럴</h3>
-                    <ul>
-                        <li>코드만 제공</li>
-                        <li>가입 후 연락 없음</li>
-                        <li>혼자 알아서 해결</li>
-                        <li>문제 발생시 지원 없음</li>
-                        <li>일회성 혜택만</li>
-                        <li>거래 수수료 그대로</li>
-                    </ul>
+                <div class="comparison-card highlight-card">
+                    <h3>💰 수수료로 돈 새고 있나요?</h3>
+                    <div class="card-content">
+                        <p>코인 거래 수수료, 매달 몇십만 원씩 날리고 계시지 않나요?</p>
+                        <p>대부분은 단순 코드만 받아 가입하고, 정작 혜택은 못 챙깁니다.</p>
+                        <p>하지만 여기서는 다릅니다.</p>
+                    </div>
                 </div>
-                <div class="comparison-card featured">
-                    <h3>✅ 암호화폐 들려주는 남자 레퍼럴</h3>
-                    <ul>
-                        <li>평생 지원 서비스</li>
-                        <li>실시간 상담 제공</li>
-                        <li>가입부터 거래까지 가이드</li>
-                        <li>24시간 문제 해결 지원</li>
-                        <li>매달 특별 이벤트</li>
-                        <li>최대 50% 수수료 할인</li>
-                    </ul>
+                <div class="comparison-card story-card">
+                    <h3>😔 저도 같은 실수를 했습니다</h3>
+                    <div class="card-content">
+                        <p>저도 처음엔 거래소 보너스와 페이백 구조를 몰라 혜택을 날린 적이 있습니다.</p>
+                        <p>그래서 회원분들이 같은 실수를 반복하지 않도록,</p>
+                        <p>가입부터 첫 거래까지 직접 가이드해드리고 있습니다.</p>
+                    </div>
+                </div>
+                <div class="comparison-card offer-card">
+                    <h3>🤝 이제는 제가 끝까지 도와드립니다</h3>
+                    <div class="card-content">
+                        <p>제 레퍼럴을 통해 가입하면, 평생 수수료 절감 + 실시간 투자 가이드 + 안전한 거래 지원을 받으실 수 있습니다.</p>
+                        <p>👉 <a href="http://pf.kakao.com/_MGxexan/chat" target="_blank" style="color: #3498db; text-decoration: none; font-weight: bold;">[문의하기]</a> 버튼을 누르시면, 가입부터 첫 거래까지 제가 직접 함께합니다.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -689,7 +787,6 @@
             </div>
             <div class="payback-conclusion">
                 <h3>✅ 페이백이 곧 수익률입니다</h3>
-                <p>페이백은 수익률을 두 배 높여줍니다</p>
             </div>
             <div style="text-align: center; margin-top: 30px;">
                 <a href="#signup" class="cta-button">지금 페이백 혜택 받기</a>
